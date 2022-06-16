@@ -41,5 +41,46 @@ class DatabaseSeeder extends Seeder
             'website' => 'https://www.starkindustries.com',
             'description' => 'lorem isup dolor sit amet consecteur adipisicing elit.Ipsam',
         ]);
+
+        Listing::create([
+            'title' => 'Frontend Developer',
+            'tags' => 'React, JavaScript',
+            'company' => 'Hulu',
+            'location' => 'Detroit, MI',
+            'email' => 'hulu@gmail',
+            'website' => 'https://www.huluindustries.com',
+            'description' => 'lorem isup dolor sit amet consecteur adipisicing elit.Ipsam',
+        ]);
+
+        Listing::create([
+            'title' => 'Django Developer',
+            'tags' => 'Django, backend',
+            'company' => 'Stark industries',
+            'location' => 'Toronto, CA',
+            'email' => 'stark@gmail',
+            'website' => 'https://www.starkindustries.com',
+            'description' => 'lorem isup dolor sit amet consecteur adipisicing elit.Ipsam',
+        ]);
+
+        Listing::create([
+            'title' => 'Full Stack Developer',
+            'tags' => 'laravel,Django,ReactJS, backend',
+            'company' => 'Avira',
+            'location' => 'Houston, TX',
+            'email' => 'stark@gmail',
+            'website' => 'https://www.avira.com',
+            'description' => 'lorem isup dolor sit amet consecteur adipisicing elit.Ipsam',
+        ]);
+
+
+        Listing::create([
+            'title' => 'Mobile Developer',
+            'tags' => 'React Native',
+            'company' => 'Anlo industries',
+            'location' => 'New York, NY',
+            'email' => 'stark@gmail',
+            'website' => 'https://www.anlokindustries.com',
+            'description' => 'lorem isup dolor sit amet consecteur adipisicing elit.Ipsam',
+        ]);
     }
 }
