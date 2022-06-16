@@ -23,8 +23,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/hello', function () {
-    return 'welcome';
-});
 
 // Single Listing
+Route::get('/hello', function () {
+    return view('listing', [
+        'listening' => Listing::find($id)
+    ]);
+});
+
