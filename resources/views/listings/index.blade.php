@@ -1,6 +1,6 @@
-@extends('layout')
+<x-layout>
 
-@section('content')
+
     @include('partials._hero')
     @include('partials._search')
 
@@ -17,4 +17,5 @@
             @endforeach
         @endunless
     </div>
-@endsection
+
+</x-layout>
