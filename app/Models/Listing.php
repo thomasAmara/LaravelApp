@@ -14,5 +14,9 @@ class Listing extends Model
         if ($filters['tags'] ?? false) {
             $query->where('tags', 'like', ' %' . request('tag') . '%' );
         }
+
+        if ($filters['tags'] ?? false) {
+            $query->where('tags', 'like', ' %' . request('tag') . '%' );
+        }
     }
 }
