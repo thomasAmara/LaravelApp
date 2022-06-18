@@ -28,7 +28,6 @@ use App\Models\Listing;
 // All Listings
 Route::get('/', [ListingController::class, 'index']);
 
-
 // Single Listing
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
