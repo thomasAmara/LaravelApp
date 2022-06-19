@@ -14,7 +14,7 @@ class ListingController extends Controller
         // dd(request('tag'));
         return view('listings.index', [
             // 'listings' => Listing::all()
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
         ]);
     }
 
@@ -44,7 +44,48 @@ class ListingController extends Controller
             'description' => 'required',
       ]);
 
+      //check if image upload 
+      if($request->hasFile('logo')) {
+          $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+      }
+
       Listing::create($formFields); //to create the database
       return redirect('/')->with('message', 'Listing Created successfully!');
     }
+
+        //show edit form
+    public function edit(Listing $listing) {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+
+    //Update Listing Data
+    public function update(Request $request, Listing $listing) {
+        $formFields = $request->validate([
+        'title' => 'required',
+        'tags' => 'required',
+        'company' => ['required'],
+        'location' => 'required',
+        'email' => ['required', 'email'],
+        'website' => 'required',           
+        'description' => 'required',
+  ]);
+
+  //check if image upload 
+  if($request->hasFile('logo')) {
+      $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+  }
+
+  $listing->update($formFields); //to create the database
+  return back()->with('message', 'Listing Updated successfully!');
 }
+
+
+   //DELETE Listing
+   public function destroy(Listing $listing) {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully');
+   }
+}
+
+
