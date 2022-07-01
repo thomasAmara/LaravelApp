@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\Listing;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,14 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(5)->create();
+        // \App\Models\User::factory(5)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
+        $user = User::factory()->create([
+            'name' => 'Paul Deumi',
+            'email' => 'john@gmail.com'
+        ]);
+
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'laravel Senior Developer',
             'tags' => 'laravel, javascript',
             'company' => 'Acme',
@@ -33,6 +40,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Full Stack Developer',
             'tags' => 'laravel, backend',
             'company' => 'Stark industries',
@@ -43,6 +51,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Frontend Developer',
             'tags' => 'React, JavaScript',
             'company' => 'Hulu',
@@ -53,6 +62,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Django Developer',
             'tags' => 'Django, backend',
             'company' => 'Stark industries',
@@ -63,6 +73,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Full Stack Developer',
             'tags' => 'laravel,Django,ReactJS, backend',
             'company' => 'Avira',
@@ -74,6 +85,7 @@ class DatabaseSeeder extends Seeder
 
 
         Listing::create([
+            'user_id' => $user->id,
             'title' => 'Mobile Developer',
             'tags' => 'React Native',
             'company' => 'Anlo industries',
